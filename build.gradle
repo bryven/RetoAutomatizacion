@@ -1,0 +1,53 @@
+plugins {
+    id "java"
+    id 'java-library'
+    id "net.serenity-bdd.serenity-gradle-plugin" version "4.0.30"
+
+}
+
+compileJava {
+    options.encoding('UTF-8')
+}
+compileTestJava {
+    options.encoding('UTF-8')
+}
+
+tasks.named('wrapper') {
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+group = 'org.qvision'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = "4.0.30"
+}
+
+dependencies {
+    implementation "net.serenity-bdd:serenity-core:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-junit:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-rest-assured:$serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:$serenityVersion"
+    implementation 'com.github.javafaker:javafaker:1.0.2'
+    testImplementation "net.serenity-bdd:serenity-cucumber:$serenityVersion"
+    testImplementation 'org.slf4j:slf4j-simple:2.0.13'
+
+}
+
+java {
+    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_11
+}
+
+
+
+
+
+
+
